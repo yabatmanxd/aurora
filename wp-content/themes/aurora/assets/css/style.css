@@ -813,8 +813,12 @@ ul.product-list li a:hover{
 }
 .offer{
 	position:absolute;
-	bottom: 13%;
-	right: 2%;
+	/* bottom: 13%;
+	right: 2%; */
+}
+.offer.ontop{
+	left: 5% !important;
+	top: 2% !important;
 }
 .offer p{
 	font-size:30px;
@@ -1201,8 +1205,8 @@ ul.product-list li a:hover{
 }
 .offer{
 	position:absolute;
-	bottom: 13%;
-	right: 2%;
+	/* bottom: 13%;
+	right: 2%; */
 }
 ul.tags_links{
 	padding:0;
