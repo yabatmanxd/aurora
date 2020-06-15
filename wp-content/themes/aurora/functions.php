@@ -3,7 +3,7 @@ include_once 'inc/register_theme_settings.php';
 include_once 'inc/register_post_types.php';
 include_once 'inc/HeaderMenuWalker.php';
 include_once 'inc/enqueue.php';
-include_once 'inc/widgets.php';
+include_once 'inc/Widgets/widgets.php';
 
 add_theme_support('woocommerce');
 
