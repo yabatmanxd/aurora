@@ -8,7 +8,7 @@ $tax_query[] = array(
 );
 $featured_products = new WP_Query([
     'post_type' => 'product',
-    //'tax_query' => $tax_query,
+    'tax_query' => $tax_query,
     'featured' => 'true',
     'orderby' => 'ID',
     'order' => 'DESC'

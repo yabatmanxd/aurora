@@ -20,6 +20,26 @@ function register_my_widgets(){
 		'after_widget'  => ""		
 	) );
 
+	register_sidebar( array(
+		'name'          => "Футер",
+		'id'            => "sidebar_footer",
+		'description'   => 'Меню в футере',
+		'before_widget' => '<div class="col-md-3 span1_of_4">',
+		'after_widget'  => "</div>",
+		'before_title'	=> '<h4>',		
+		'after_title'	=> '</h4>',		
+	) );
+
+	register_sidebar( array(
+		'name'          => "Левый сайдбар",
+		'id'            => "sidebar_left",
+		'description'   => 'Левый сайдбар',
+		'before_widget' => '',
+		'after_widget'  => "",
+		'before_title'	=> '',		
+		'after_title'	=> '',		
+	) );
+
 	register_widget('FeaturedWidget');
 }
 ?>
