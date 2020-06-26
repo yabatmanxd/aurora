@@ -34,8 +34,8 @@ function woocommerce_template_loop_product_title()
 {
     if (is_shop()) {
         echo '<a class="product_name" href="single.html">' . get_the_title() . '</a>';
-    } elseif (is_product_category()) {
-
+    } elseif (is_product_category() || is_product_tag()) {
+        echo '<p class="title">'.get_the_title().'</p>';
     }
 
 }
@@ -80,14 +80,27 @@ function customize_dynamic_sidebar($params)
 add_action('wp_head', 'change_actions');
 function change_actions()
 {
-    if (is_product_category() || is_product_tag()) {
-        
-        remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper',10); //Обертка не нужна
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10); //Выводит "вы положили в корзину..." Не нужно
+    remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
+    if (is_shop()) {
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
+        //add_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
+        remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+    } elseif (is_product_category() || is_product_tag()) {
+
+        remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10); //Обертка не нужна
         add_action('woocommerce_before_shop_loop', 'woocommerce_pagination', 100);
-        remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination',10);
-        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count',20);        
+        remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+        remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
+        remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+        remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+        remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
     }
 }
+
 
 
 add_filter('woocommerce_breadcrumb_defaults', 'breadcrumbs_options');

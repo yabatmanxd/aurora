@@ -42,6 +42,7 @@ get_header();
                     <?php global $product;?>
                     <li>
                         <a class="cbp-vm-image" href="<?php echo get_permalink($product->get_id())?>">
+                        <?php do_action('woocommerce_before_shop_loop_item') ?>
                             <div class="simpleCart_shelfItem">
                                 <div class="view view-first">
                                     <div class="inner_content clearfix">
@@ -52,12 +53,11 @@ get_header();
                                                 <div class="info">Quick View</div>
                                             </div>
                                             <div class="product_container">
+                                                <?php do_action('woocommerce_before_shop_loop_item_title') ?>
                                                 <div class="cart-left">
-                                                    <p class="title"><?php echo $product->get_title() ?></p>
+                                                    <?php do_action('woocommerce_shop_loop_item_title')?>
                                                 </div>
-                                                <div class="pricey"><span
-                                                        class="item_price"><?php if($price_html = $product->get_price_html()) echo $price_html?></span>
-                                                </div>
+                                                <?php do_action('woocommerce_after_shop_loop_item_title') ?>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
@@ -68,15 +68,10 @@ get_header();
                         <div class="cbp-vm-details">
                             <?php echo wp_trim_words($product->get_description(), 10)?>
                         </div>
-                        <?php echo apply_filters('woocommerce_add_to_cart_link',
-                                sprintf('<a href="%s" data-quantity="%s" data-product_id="%s" data-product-sku="%s" class="cbp-vm-icon cbp-vm-add item_add">Добавить в корзину</a>',
-                                    esc_url($product->add_to_cart_url()),
-                                    esc_attr(isset($quantity) ? $quantity : 1),
-                                    esc_attr($product->get_id()),
-                                    esc_attr($product->get_sku())                                    
-                                )); ?>
+                        <?php do_action('woocommerce_after_shop_loop_item') ?>
                     </li>
                     <?php endwhile ?>
+                    <?php do_action('woocommerce_after_shop_loop')?>
                 </ul>
                 <?php else: echo "В данной категории товары отсутствуют" ?>
                 <?php endif ?>

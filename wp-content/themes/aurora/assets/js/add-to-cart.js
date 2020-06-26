@@ -168,12 +168,11 @@ jQuery( function( $ ) {
 			
 			if ( fragments ) {
 				$button.addClass( 'added' );
-			}
-            debugger
-                $button.attr('href',wc_add_to_cart_params.cart_url);
-                $button.attr('class','added_to_cart wc-forward');
-                $button.attr('title','added_to_cart wc-forward',wc_add_to_cart_params.i18n_view_cart);
-                $button.text(wc_add_to_cart_params.i18n_view_cart);
+			}          
+			$button.attr('href',wc_add_to_cart_params.cart_url);
+			$button.attr('class','added_to_cart wc-forward');
+			$button.attr('title','added_to_cart wc-forward',wc_add_to_cart_params.i18n_view_cart);
+			$button.text(wc_add_to_cart_params.i18n_view_cart);
 			// View cart text.
 			if ( fragments && ! wc_add_to_cart_params.is_cart && $button.parent().find( '.added_to_cart' ).length === 0 ) {
                 

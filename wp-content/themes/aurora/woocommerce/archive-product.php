@@ -12,11 +12,13 @@ $products_query = new WP_Query([
 ]);
 ?>
 <?php if($products_query->have_posts()):?>
+<?php do_action('woocommerce_before_shop_loop')?>
 <?php woocommerce_product_loop_start()?>
 <?php while($products_query->have_posts()) : $products_query->the_post()?>
 <?php get_template_part('template-parts/home/recent-products')?>
 <?php endwhile;?>
 <?php woocommerce_product_loop_end();?>
+<?php do_action('woocommerce_after_shop_loop')?>
 <?php endif;?>
 <?php get_sidebar('featured')?>
 <?php do_action('woocommerce_after_main_content')?>
