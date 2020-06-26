@@ -26,7 +26,6 @@ get_header();
                 </div>
                 <div class="pages">
                     <div class="limiter visible-desktop">
-                    <?php echo "ppp = ". (isset($_GET['posts_per_page']) ? $_GET['posts_per_page'] : "not set")?>
                     <form id="ppp-form"></form>
                         <label>Show</label>
                         <select id="ppp-select" name="posts_per_page">
@@ -42,7 +41,7 @@ get_header();
                     <?php while(have_posts()): the_post()?>
                     <?php global $product;?>
                     <li>
-                        <a class="cbp-vm-image" href="single.html">
+                        <a class="cbp-vm-image" href="<?php echo get_permalink($product->get_id())?>">
                             <div class="simpleCart_shelfItem">
                                 <div class="view view-first">
                                     <div class="inner_content clearfix">

@@ -22,6 +22,7 @@ register_nav_menus([
 ]);
 add_image_size('aurora-main', 277, 396, false);
 
+
 function woocommerce_template_loop_product_thumbnail()
 {
     echo woocommerce_get_product_thumbnail('aurora-main');
@@ -79,13 +80,12 @@ function customize_dynamic_sidebar($params)
 add_action('wp_head', 'change_actions');
 function change_actions()
 {
-    if (is_product_category()) {
+    if (is_product_category() || is_product_tag()) {
         
         remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper',10); //Обертка не нужна
         add_action('woocommerce_before_shop_loop', 'woocommerce_pagination', 100);
         remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination',10);
-        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count',20);
-        //print_r($GLOBALS['wp_filter']);
+        remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count',20);        
     }
 }
 

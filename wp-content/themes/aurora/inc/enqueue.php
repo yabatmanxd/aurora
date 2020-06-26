@@ -6,7 +6,7 @@ function load_scripts_and_styles()
     wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css');
     wp_enqueue_style('flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
 
-    if(is_product_category()){
+    if(is_product_category() || is_search() || is_product_tag()){
         wp_enqueue_script('posts-per-page-form', get_template_directory_uri() . '/assets/js/posts-per-page-form.js', ['jquery'],false,true);
         wp_enqueue_style('component', get_template_directory_uri() . '/assets/css/component.css');
     }
