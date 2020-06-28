@@ -3,7 +3,7 @@ add_action('wp_enqueue_scripts', 'load_scripts_and_styles',9);
 function load_scripts_and_styles()
 {
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css');
-    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css');
+    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css',[],null);
     wp_enqueue_style('flexslider', get_template_directory_uri() . '/assets/css/flexslider.css');
 
     if(is_product_category() || is_search() || is_product_tag()){

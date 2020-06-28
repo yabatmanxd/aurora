@@ -16,15 +16,16 @@ $featured_products = new WP_Query([
 ?>
 <?php if($featured_products->have_posts()): ?>
 <ul id="flexiselDemo3">
-    <?php while($featured_products->have_posts()) : $featured_products->the_post()?>
+    <?php while($featured_products->have_posts()) : $featured_products->the_post(); global $product;?>
     <li>
         <a href="<?php the_permalink()?>">
-            <?php the_post_thumbnail('woocommerce_thumbnail', ['class' => 'img-responsive'])?>
+        
+            <?php $src = get_the_post_thumbnail_url($product->get_id(),'aurora-main')?>
+            <img class="img-responsive" src="<?php echo $src ?>" >
         </a>
         <div class="product liked-product simpleCart_shelfItem">
-            <a class="like_name" href="single.html"><?php echo $title?></a>
-            <?php
-            global $product;
+            <a class="like_name" href=<?php get_the_permalink() ?>><?php the_title()?></a>
+            <?php            
             $class = implode(
 					' ',
 					array_filter(

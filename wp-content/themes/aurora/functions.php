@@ -25,17 +25,18 @@ add_image_size('aurora-main', 277, 396, false);
 
 function woocommerce_template_loop_product_thumbnail()
 {
+    //echo woocommerce_get_product_thumbnail('aurora-main');
     echo woocommerce_get_product_thumbnail('aurora-main');
     echo '</a>'; //Закрываю ссылку продукта
-    echo '<div class="mask"><a href="' . get_the_permalink() . '">Quick View</a></div>';
+//    echo '<div class="mask"><a href="' . get_the_permalink() . '">Quick View</a></div>';
 }
 
 function woocommerce_template_loop_product_title()
 {
     if (is_shop()) {
-        echo '<a class="product_name" href="single.html">' . get_the_title() . '</a>';
+        echo '<a class="product_name" href="'.get_the_permalink().'">' . wp_trim_words(get_the_title(), 5) . '</a>';
     } elseif (is_product_category() || is_product_tag()) {
-        echo '<p class="title">'.get_the_title().'</p>';
+        echo '<p class="title">'.wp_trim_words(get_the_title(), 5).'</p>';
     }
 
 }
@@ -44,6 +45,7 @@ function sale_flash()
 {
     return '<div class="offer ontop"><p>40%</p><small>Sale</small></div>';
 }
+
 
 add_filter('woocommerce_sale_flash', 'sale_flash');
 

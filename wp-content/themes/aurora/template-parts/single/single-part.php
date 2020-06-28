@@ -7,8 +7,7 @@
 				<?php do_action('woocommerce_before_single_product_summary') ?>
 				
 				<div class="col-md-7 dress-info">
-					<div class="dress-name">
-						<h3>LOREM IPSUM DRESS</h3>
+						<?php do_action( 'woocommerce_single_product_summary' ); ?>
 						<span>$459.00</span>
 						<div class="clearfix"></div>
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque

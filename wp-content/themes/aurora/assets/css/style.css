@@ -8,7 +8,7 @@ body{
 	padding:0;
 	margin:0;
 	font-family: 'Lato-Regular';
-	background:#fff;
+	background:#fff;	
 }
 body a{
     transition:0.5s all;
@@ -512,18 +512,21 @@ h3.head.text-center {
 	display:block;
 }
 .products-grid img {
-	width:100%;
+	/* width:100%; */
 }
-.products-grid  a {
+.products-grid a {
 	display:block;
 	color:#000;
 	text-transform:uppercase;
 	font-size:14px;
 	letter-spacing:2px;
 	text-decoration:none;
+	margin: 0 auto;
+	position: relative;
+	width: min-content;
 }
 a.product_name {
-    margin: 15px 0;
+    margin: 15px auto;
 }
 .product-left:hover .p-one{
 	border: 1px solid #8c2830;
@@ -633,7 +636,7 @@ a.like_name {
 }
 .nbs-flexisel-item {
 	float: left;
-	margin:0px;
+	margin:0px 5px;
 	padding:0px;
 	cursor: pointer;
 	position: relative;
@@ -647,6 +650,12 @@ a.like_name {
 	max-width:350px;
 	max-height:500px;
 	display:inline-block;
+	
+}
+.nbs-flexisel-item img{
+	object-fit: contain;
+	width: 100% !important;
+	height: 300px !important;
 }
 .grid-flex{
 	margin:20px 0 20px 0;
@@ -655,6 +664,7 @@ a.like_name {
 	cursor: pointer;
 	position: relative;
 	width: 90%;
+	object-fit: contain;
 }
 /*** Navigation ***/
 .nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
@@ -812,13 +822,13 @@ ul.product-list li a:hover{
 	position:relative;
 }
 .offer{
-	position:absolute;
+	position:absolute;	
 	/* bottom: 13%;
 	right: 2%; */
 }
 .offer.ontop{
 	left: 5% !important;
-	top: 2% !important;
+	top: 5% !important;
 }
 .offer p{
 	font-size:30px;
@@ -2599,6 +2609,8 @@ p.right {
 	.products-grid a {
 		font-size: 13px;
 		letter-spacing: 1px;
+		margin: 0 auto;
+		position: relative;
 	}
 	.nbs-flexisel-item img {
 		width: 85%;
